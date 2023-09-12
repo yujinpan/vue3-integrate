@@ -1,14 +1,18 @@
 @use "./common-variables" as *;
 
 @each $type in margin, padding {
-  $size-map: (base: $spacing-base, medium: $spacing-medium, large: $spacing-large);
-  
+  $size-map: (
+    base: $spacing-base,
+    medium: $spacing-medium,
+    large: $spacing-large,
+  );
+
   @each $size in base, medium, large {
     .#{$type}-#{$size} {
       #{$type}: map-get($size-map, $size);
     }
   }
-  
+
   @each $direction in top, right, bottom, left {
     @each $size in base, medium, large {
       .#{$type}-#{$direction}-#{$size} {
@@ -21,11 +25,11 @@
 .full {
   width: 100%;
   height: 100%;
-  
+
   &-h {
     height: 100%;
   }
-  
+
   &-w {
     width: 100%;
   }
@@ -35,17 +39,17 @@
   &-r {
     text-align: right;
   }
-  
+
   &-c {
     text-align: center;
   }
-  
+
   &-l {
     text-align: left;
   }
 }
 
-[class^='fl'] {
+[class^="fl"] {
   display: flex;
 }
 
@@ -54,24 +58,24 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   &-bt {
     align-items: center;
     justify-content: space-between;
   }
-  
+
   &-wp {
     flex-wrap: wrap;
   }
-  
+
   &-cl {
     flex-direction: column;
   }
-  
+
   &-1 {
-    flex: 1
+    flex: 1;
   }
-  
+
   &-at {
     @extend .full;
     &__f {
